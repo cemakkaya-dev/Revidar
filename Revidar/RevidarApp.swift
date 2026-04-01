@@ -11,7 +11,7 @@ import SwiftUI
 struct RevidarApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameContainerView()
         }
     }
 }
