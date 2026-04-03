@@ -1,4 +1,4 @@
-# 🗡️ PARRY KNIGHT — Game Design Document
+# 🗡️ Revidar — Game Design Document
 ### Top-Down Parry-Based Action RPG | SpriteKit + Swift
 
 ---

@@ -8,7 +8,7 @@
 import SwiftUI
 import SpriteKit
 
-struct GameContainerView: View {
+struct GameContainerView: View { 
     
     @State private var scene = GameScene(size: CGSize(width: 800, height: 600))
     
