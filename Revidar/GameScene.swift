@@ -13,7 +13,7 @@ class GameScene: SKScene {
     var player = SKSpriteNode(color: .blue, size: CGSize(width: 32, height: 32))
     var playerSpeed: CGFloat = 150
     var moveDirection = CGPoint.zero
-    var isMoving: Bool = false
+    var joystickTouch: UITouch?
     var joystickBase = SKShapeNode()
     var joystickThumb = SKShapeNode()
     
@@ -49,16 +49,16 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
-        
-        if joystickBase.contains(location) {
-            isMoving = true
+        for touch in touches {
+            let location = touch.location(in: self)
+            if joystickTouch == nil && joystickBase.contains(location) {
+                joystickTouch = touch
+            }
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first, isMoving else { return }
+        guard let touch = joystickTouch, touches.contains(touch) else { return }
         let location = touch.location(in: self)
         
         var dx = location.x - joystickBase.position.x
@@ -77,21 +77,25 @@ class GameScene: SKScene {
             y: joystickBase.position.y + dy
         )
         
-        let deadZone: CGFloat = 10.0
-        
-        if distance < deadZone {
+        if distance < 1.0 {
             moveDirection = .zero
         } else {
-            let currentThumbDistance = sqrt(dx*dx + dy*dy)
-            moveDirection = CGPoint(x: dx / currentThumbDistance, y: dy / currentThumbDistance)
+            // Normalize by maxRadius for analog feel (partial press = slower speed)
+            moveDirection = CGPoint(x: dx / maxRadius, y: dy / maxRadius)
         }
         
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isMoving = false
-        joystickThumb.position = CGPoint(x: 120, y: 220)
-        moveDirection = .zero
+        if let touch = joystickTouch, touches.contains(touch) {
+            joystickTouch = nil
+            joystickThumb.position = CGPoint(x: 120, y: 220)
+            moveDirection = .zero
+        }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchesEnded(touches, with: event)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -99,10 +103,11 @@ class GameScene: SKScene {
             lastUpdateTime = currentTime
         }
         
-        let dt = currentTime - lastUpdateTime
+        // Clamp dt to max 2 frames to prevent position spikes on frame drops
+        let dt = min(currentTime - lastUpdateTime, 1.0 / 30.0)
         lastUpdateTime = currentTime
         
-        guard isMoving else { return }
+        guard joystickTouch != nil else { return }
         
         player.position.x += moveDirection.x * playerSpeed * dt
         player.position.y += moveDirection.y * playerSpeed * dt
