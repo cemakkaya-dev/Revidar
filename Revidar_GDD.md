@@ -35,7 +35,7 @@
 
 | Alan | Detay |
 |------|-------|
-| **İsim** | Parry Knight (çalışma adı) |
+| **İsim** | Revidar (çalışma adı) |
 | **Tür** | Top-Down Action RPG |
 | **Motor** | SpriteKit + SKShader (Metal backend) |
 | **Dil** | Swift 5.9+ |
@@ -49,7 +49,7 @@
 
 ### Temel Konsept
 
-Batman Arkham serisinin parry/counter sisteminden ilham alan, Diablo tarzı top-down perspektifli bir aksiyon RPG. Oyuncunun refleksleri ve zamanlaması, brute-force saldırıdan daha ödüllendirici. Her düşman saldırısı bir fırsat — doğru zamanda parry yapan oyuncu savaşın akışını kontrol eder.
+Batman Arkham serisinin parry/counter ve dövüş sisteminden ilham alan, Diablo tarzı top-down perspektifli bir aksiyon RPG. Oyuncunun refleksleri ve zamanlaması, brute-force saldırıdan daha ödüllendirici. Her düşman saldırısı bir fırsat — doğru zamanda parry yapan oyuncu savaşın akışını kontrol eder.
 
 ### Tasarım Felsefesi
 
