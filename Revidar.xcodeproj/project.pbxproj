@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B20E182A2FD4CC8100EC458E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20E18252FD4CC8100EC458E /* Assets.xcassets */; };
+		B20E182B2FD4CC8100EC458E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E18262FD4CC8100EC458E /* ContentView.swift */; };
+		B20E182C2FD4CC8100EC458E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E18272FD4CC8100EC458E /* GameScene.swift */; };
+		B20E182D2FD4CC8100EC458E /* RevidarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20E18282FD4CC8100EC458E /* RevidarApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B20E18132FD4C22900EC458E /* Revidar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revidar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20E18252FD4CC8100EC458E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B20E18262FD4CC8100EC458E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B20E18272FD4CC8100EC458E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		B20E18282FD4CC8100EC458E /* RevidarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevidarApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		B20E18152FD4C22900EC458E /* Revidar */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Revidar;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B20E18102FD4C22900EC458E /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		B20E180A2FD4C22900EC458E = {
 			isa = PBXGroup;
 			children = (
-				B20E18152FD4C22900EC458E /* Revidar */,
+				B20E18292FD4CC8100EC458E /* Revidar */,
 				B20E18142FD4C22900EC458E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,33 @@
 				B20E18132FD4C22900EC458E /* Revidar.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B20E18292FD4CC8100EC458E /* Revidar */ = {
+			isa = PBXGroup;
+			children = (
+				B20E182E2FD4CC8D00EC458E /* App */,
+				B20E182F2FD4CC9300EC458E /* Core */,
+				B20E18252FD4CC8100EC458E /* Assets.xcassets */,
+			);
+			path = Revidar;
+			sourceTree = "<group>";
+		};
+		B20E182E2FD4CC8D00EC458E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B20E18262FD4CC8100EC458E /* ContentView.swift */,
+				B20E18282FD4CC8100EC458E /* RevidarApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B20E182F2FD4CC9300EC458E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B20E18272FD4CC8100EC458E /* GameScene.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +89,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				B20E18152FD4C22900EC458E /* Revidar */,
 			);
 			name = Revidar;
 			packageProductDependencies = (
@@ -109,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20E182A2FD4CC8100EC458E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +147,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20E182B2FD4CC8100EC458E /* ContentView.swift in Sources */,
+				B20E182C2FD4CC8100EC458E /* GameScene.swift in Sources */,
+				B20E182D2FD4CC8100EC458E /* RevidarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

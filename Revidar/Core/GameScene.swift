@@ -7,9 +7,14 @@
 
 import SpriteKit
 
+private let player = SKSpriteNode(color: .systemBlue,
+                                  size: CGSize(width: 32, height: 32))
+
 class GameScene: SKScene {
     override func didMove(to view: SKView) {
-        backgroundColor = .darkGray     // bos zemin - simdilik bu kadar
+        backgroundColor = .darkGray
+        player.position = CGPoint(x: frame.midX, y: frame.midY)
+        addChild(player)
     }
     
     override func update(_ currentTime: TimeInterval) {
